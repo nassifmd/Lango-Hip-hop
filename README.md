@@ -24,9 +24,8 @@ For LIH
 
 ## License
 
-Nassif Dauda 
-Github (https://github.com/nassifmd)
-Twitter (https://twitter.com/nassifdev/)
-Linkedin (https://www.linkedin.com/in/nassif-dauda/)
+* Github (https://github.com/nassifmd)
+* Twitter (https://twitter.com/nassifdev/)
+* Linkedin (https://www.linkedin.com/in/nassif-dauda/)
 
 Copyright (c) _16/04/2023_ _Nassif Dauda_# Lango-Hip-hop
