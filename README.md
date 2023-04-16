@@ -7,6 +7,8 @@
 ## Technologies Used
 
 * Materialized Framework
+* JavaScript
+* SCSS
 
 ## Description
 
