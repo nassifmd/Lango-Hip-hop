@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Music-->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- APlayer CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap" rel="stylesheet">
+    <!--Awesome font-->
+    <link href="fontawesome/css/all.css" rel="stylesheet">
+    <link href="fontawesome/css/brands.css" rel="stylesheet">
+    <link href="fontawesome/css/solid.css" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+
+  </head>
+
+  <body>
+    <style>
+      .brand-logo {
+          width: 100px;
+          height: 80px;
+          position: absolute;
+          background-image: url("/img/logo.png");
+          top: 0px;
+          left: 12px;
+      }
+      body{
+    		background-color: #f7f7f7;
+    		font-family: Open sans;
+    	}
+    	img{
+    		width: 100%;
+    		min-height: 250px;
+    	}
+    	.main{
+    		padding: 40px 0;
+    	}
+    	.col-md-3{
+    		margin-bottom: 40px;
+    	}
+    	.album-poster{
+    		position: relative;
+    		display: block;
+    		border-radius: 7px;
+    		overflow: hidden;
+    		box-shadow: 0 15px 35px #3d2173a1;
+    		transition: all ease 0.4s;
+    	}
+    	.album-poster:hover{
+    		box-shadow: none;
+    		transform: scale(0.98) translateY(5px);
+    	}
+    	h3{
+    		font-size: 34px;
+    		margin-bottom: 34px;
+    		border-bottom: 4px solid #e6e6e6;
+    		padding-bottom: 15px;
+    	}
+    	p{
+    		font-size: 15px;
+    	}
+    	h4{
+    		font-size: 16px;
+    		text-transform: uppercase;
+    		margin-top: 15px;
+    		font-weight: 700;
+    	}
+		
+
+		/*default is hide music player*/
+		#aplayer{
+			position: fixed;
+			bottom: -100%;
+			left: 0;
+			width: 100%;
+			margin: 0;
+			box-shadow: 0 -2px 2px #dadada;
+			background-color: #fff;
+			transition: all ease 0.5s;
+		}
+		#aplayer.showPlayer{
+			bottom: 0;
+		}
+
+		
+		/*MUSIC PLAYER CUSTOMIZING STYLE*/
+		span{
+			color: #000 !important;
+			font-size: 16px;
+		}
+		.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-loaded{
+			background: #e0e0e0;
+    		height: 4px;
+		}
+		.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played{
+			height: 4px;
+			background-color: #2196F3 !important;
+		}
+		.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played .aplayer-thumb{
+			background-color: #2196F3 !important;
+		}
+
+		.aplayer .aplayer-icon{
+			width: 20px;
+			height: 20px;
+		}
+		.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon path {
+		    fill: #000;
+		}
+		.aplayer .aplayer-info .aplayer-music{
+			margin-bottom: 5px;
+		}
+    </style>
+          <nav>
+            <div class="nav-wrapper grey lighten-5">
+              <a href="/index.html" class="brand-logo grey-text text-darken-4">Lango 
+                <!-- <img class="brand-logo" src="/img/logo.png" alt=""> -->
+              </a>
+              <a href="#" class="sidenav-trigger blue-text text-darken-2 right" data-target="mobile-links">
+                <i class="material-icons">menu</i>
+              </a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="grey-text text-darken-4" href="/index.html">Home</a></li>
+                <li><a class="grey-text text-darken-4" href="/about.html">About</a></li>
+                <li><a class="grey-text text-darken-4" href="/projects.html">Hip-hop Projects</a></li>
+                <li><a class="grey-text text-darken-4" href="/music.html">Music</a></li>
+                <li><a class="grey-text text-darken-4" href="/opportunities.html">Opportunities</a></li>
+                <li><a class="grey-text text-darken-4" href="/news.html">News</a></li>
+                <li><a class="grey-text text-darken-4" href="/gallery.html">Gallery</a></li>
+                <li><a class="waves-effect  grey darken-1 waves-light btn">Contact <i class="material-icons right">contact_mail</i></a></li>
+              </ul>
+            </div>
+          </nav> 
+
+          <!-- Sidenav -->
+        <ul class="sidenav" id="mobile-links">
+          <ul><li><a href="#"><img class="responsive-img size" src="./img/logo.png"></a></li></ul>
+            <li><a class="navtxt" href="index.html">Home</a></li>
+            <li><a class="navtxt" href="about.html">About</a></li>
+            <li><a class="navtxt" href="products.html">Hip-hop Projects</a></li>
+            <li><a class="navtxt" href="projects.html">Music</a></li>
+            <li><a class="navtxt" href="music.html">Opportunities</a></li>
+            <li><a class="navtxt" href="news.html">News</a></li>
+            <li><a class="navtxt" href="gallery.html">Gallery</a></li>
+            <li><a class="navtxt" href="contact.html">Contact</a></li>
+        </ul>
+
+            <div class="main">
+              <div class="contain">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h3 style="text-align: center; font-size: 50px;">Music</h3>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="#" class="album-poster" data-switch="0">
+                      <img src="music/img/My_ARV_Song.jpg" alt="">
+                    </a>
+                    <a href="/My_ARVS.html" target="_blank"><h4>My ARVs</h4></a>
+                    <p>Dealrafael Jsp-E , Dandilo & Victoria</p>
+                    |<a href="music/songs/My ARVs-Dealrafael Jsp-E , Dandilo & Victoria.mp3" download='My ARVs-Dealrafael Jsp-E , Dandilo & Victoria.' class="download-btn">Download
+                        <i class="fa fa-download"></i>
+                    </a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="#" class="album-poster" data-switch="1">
+                      <img src="music/img/Climate_Song.jpg" alt="">
+                    </a>
+                    <a href="/PE_ITONG_YEN.html" target="_blank"><h4>Pe Itong Yen</h4></a>
+                    <p>Dealrafael Jsp-E ft Dandilo</p>
+                    |<a href="music/songs/Pe Itong Yen - Dealrafael Jsp-E ft Dandilo.mp3" download='Pe Itong Yen - Dealrafael Jsp-E ft Dandilo' class="download-btn">Download
+                        <i class="fa fa-download"></i>
+                     </a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="javascript:void();" class="album-poster" data-switch="2">
+                      <img src="/music/img/LANGO FLOW.jpg" alt="">
+                    </a>
+                    <a href="/Luga_flow.html" target="_blank"><h4>Luga flow(Lango flow)</h4></a>
+                    <p>Dealrafael Jsp-E</p>
+                    |<a href="music/songs/Luga flow(Lango flow) - Dealrafael Jsp-Emp3.mp3" download='Luga flow(Lango flow) - Dealrafael Jsp-Emp3' class="download-btn">Download
+                          <i class="fa fa-download"></i>
+                      </a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="#" class="album-poster" data-switch="3">
+                      <img src="/music/img/ATUNGULU.png" alt="">
+                    </a>
+                    <a href="/Atungulu.html" target="_blank"><h4>Atungulu</h4></a>
+                    <p>Ory Jeino Ft Dealrafael Jsp-E</p>
+                   
+					|<a href="music/songs/Atungulu - Ory Jeino ft Dealrafael Jsp-E.mp3" download='Atungulu - Ory Jeino ft Dealrafael Jsp-E' class="download-btn">Download
+        				<i class="fa fa-download"></i>
+    				</a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="#" class="album-poster" data-switch="4">
+                      <img src="/music/img/SOY BEANS.png" alt="">
+                    </a>
+                    <a href="/Soy beans.html" target="_blank"><h4>Soy beans</h4></a>
+                    <p>Dealrafael Jsp-E</p>
+                    
+				|<a href="music/songs/Soy beans - Dealrafael Jsp-E.mp3" download='Soy beans - Dealrafael Jsp-E' class="download-btn">Download
+        				<i class="fa fa-download"></i>
+    				</a>
+                  </div>
+            
+                  <div class="col-md-3">
+                    <a href="#" class="album-poster" data-switch="5">
+                      <img src="/music/img/Mak Tic Wek  Ra.png" alt="">
+                    </a>
+                    <a href="/Mak Tic Wek Ra.html" target="_blank"><h4>Mak Tic Wek Ra</h4></a>
+                    <p>Dealrafael Jsp-E</p>
+                    
+				|<a href="music/songs/Mak Tic Wek Ra - Dealrafael Jsp-E.mp3" download='Mak Tic Wek Ra - Dealrafael Jsp-E' class="download-btn">Download
+        				<i class="fa fa-download"></i>
+    				</a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="#" class="album-poster" data-switch="6">
+                      <img src="/music/img/Uganda Mewa.png" alt="">
+                    </a>
+                    <a href="/Uganda Mewa.html" target="_blank"><h4>Uganda Mewa</h4></a>
+                    <p>Dealrafael Jsp-E</p>
+                    
+				|<a href="music/songs/Uganda Mewa - Dealrafael Jsp-E.mp3" download='Uganda Mewa - Dealrafael Jsp-E' class="download-btn">Download
+        				<i class="fa fa-download"></i>
+    				</a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="#" class="album-poster" data-switch="7">
+                      <img src="/music/img/RWOT MII WUU GUM.png" alt="">
+                    </a>
+                    <a href="/Rwot mi Gum 2017.html" target="_blank"><h4>Rwot mi Gum 2017</h4></a>
+                    <p>Dealrafael Jsp-E</p>
+                    
+				|<a href="music/songs/Rwot mi Gum 2017 - Dealrafael Jsp-E.mp3" download='Rwot mi Gum 2017 - Dealrafael Jsp-E' class="download-btn">Download
+        				<i class="fa fa-download"></i>
+    				</a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="#" class="album-poster" data-switch="8">
+                      <img src="/music/img/LEGO PII UGANDA.png" alt="">
+                    </a>
+                    <a href="/Lego Pi Uganda.html" target="_blank"><h4>Lego Pi Uganda</h4></a>
+                    <p>Dealrafael Jsp-E</p>
+                    
+				|<a href="music/songs/Lego Pi Uganda By Dealrafael Jsp-E.mp3" download='Lego Pi Uganda By Dealrafael Jsp-E' class="download-btn">Download
+        				<i class="fa fa-download"></i>
+    				</a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="#" class="album-poster" data-switch="9">
+                      <img src="/music/img/WINYA I RADIO.png" alt="">
+                    </a>
+                    <a href="/Winya I Radio.html" target="_blank"><h4>Winya I Radio</h4></a>
+                    <p>Dealrafael Jsp-E</p>
+                   
+					|<a href="music/songs/Winya i Radio - Dealrafael Jsp-E .mp3" download='Winya i Radio - Dealrafael Jsp-E ' class="download-btn">Download
+        				<i class="fa fa-download"></i>
+    				</a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="#" class="album-poster" data-switch="10">
+                      <img src="/music/img/PINGO PE IMITO WEKO JAI.png" alt="">
+                    </a>
+                    <a href="/Pingo pe imito weko jayi.html" target="_blank"><h4>Pingo pe imito weko jayi</h4></a>
+                    <p>Dealrafael Jsp-E ft Musiime Da_profesa</p>
+                   
+                |<a href="music/songs/Pingo Pe Imito Weko Jai Musiime Da profesa Ft Dealrafael Jsp-E.mp3" download='Pingo Pe Imito Weko Jai Musiime Daprofesa Ft Dealrafael Jsp-E' class="download-btn">Download
+                      <i class="fa fa-download"></i>
+                  </a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="#" class="album-poster" data-switch="11">
+                      <img src="/music/img/KOP OKANE.png" alt="">
+                    </a>
+                    <a href="/KOP OKANE.html" target="_blank"><h4>KOP OKANE</h4></a>
+                    <p>Dealrafael Jsp-E</p>
+                    
+                |<a href="music/songs/KOP OKANE - Dealrafael Jsp-E.mp3" download='KOP OKANE - Dealrafael Jsp-E' class="download-btn">Download
+                        <i class="fa fa-download"></i>
+                  </a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="#" class="album-poster" data-switch="12">
+                      <img src="/music/img/ALOKALOKA.png" alt="">
+                    </a>
+                    <a href="/AlokaLoka.html" target="_blank"><h4>AlokaLoka</h4></a>
+                    <p>Dealrafael Jsp-E</p>
+                   
+                    |<a href="music/songs/AlokaLoka - Dealrafael Jsp-E.mp3" download='AlokaLoka - Dealrafael Jsp-E' class="download-btn">Download
+                          <i class="fa fa-download"></i>
+                      </a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="#" class="album-poster" data-switch="13">
+                      <img src="/img/logo.png" alt="">
+                    </a>
+                    <a href="/Pe Itong Yen (Instrumentals with Hook).html" target="_blank"><h4>Pe Itong Yen (Instrumentals with Hook)</h4></a>
+                    <p>Dealrafael Jsp-E</p>
+                    |<a href="music/songs/Pe Itong Yen (Instrumentals with Hook).mp3" download='Pe Itong Yen (Instrumentals with Hook)' class="download-btn">Download
+                        <i class="fa fa-download"></i>
+                     </a>
+                  </div>
+                  <div class="col-md-3">
+                    <a href="#" class="album-poster" data-switch="14">
+                      <img src="/img/logo.png" alt="">
+                    </a>
+                    <a href="/Pe Itong Yen (Instrumentals with Hook).html" target="_blank"><h4>Pe Itong Yen (Instrumentals with Hook)</h4></a>
+                    <p>Dealrafael Jsp-E</p>
+                    |<a href="music/songs/Pe Itong Yen (Instrumentals with Hook).mp3" download='Pe Itong Yen (Instrumentals with Hook)' class="download-btn">Download
+                        <i class="fa fa-download"></i>
+                     </a>
+                  </div>
+                  
+                </div>
+            
+            
+                <!-- <div class="row">
+                  <div class="col-md-12">
+                    <h3>coming soon</h3>
+                  </div>
+                  <div class="col-md-2">
+                    <a href="#" class="album-poster">
+                      <img src="https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    </a>
+                    <h4>Lorem ipsum</h4>
+                  </div>
+                  <div class="col-md-2">
+                    <a href="#" class="album-poster">
+                      <img src="https://images.pexels.com/photos/838702/pexels-photo-838702.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    </a>
+                    <h4>Repellat illo</h4>
+                  </div>
+                  <div class="col-md-2">
+                    <a href="#" class="album-poster">
+                      <img src="https://images.pexels.com/photos/894156/pexels-photo-894156.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    </a>
+                    <h4>adipisicing elit</h4>
+                  </div>
+                  
+                  <div class="col-md-2">
+                    <a href="#" class="album-poster">
+                      <img src="https://images.pexels.com/photos/2118046/pexels-photo-2118046.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    </a>
+                    <h4>Atque ab</h4>
+                  </div>
+                  <div class="col-md-2">
+                    <a href="#" class="album-poster">
+                      <img src="https://images.pexels.com/photos/1735240/pexels-photo-1735240.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    </a>
+                    <h4>Fugiat Silly</h4>
+                  </div>
+                  <div class="col-md-2">
+                    <a href="#" class="album-poster">
+                      <img src="https://images.pexels.com/photos/2272854/pexels-photo-2272854.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    </a>
+                    <h4>veniam expedita</h4>
+                  </div>
+                </div> -->
+            
+            
+              </div>
+            </div>
+            
+              <div id="aplayer"></div>
+
+
+              <div class="container">
+                <div class="row" style="margin: 0 400px;">
+                  <div class="col s12 m6 l3">
+                    <a href="https://www.linkedin.com/company/lango-indigenous-hip-hop" target="_blank"><i style="color: #0072b1;" class="fa-brands fa-linkedin fa-3x"></i></a>
+                  </div>
+                  <div class="col s12 m6 l3">
+                    <a href="" target="_blank"><i style="color: rgb(228, 64, 95)" class="fa-brands fa-square-instagram fa-3x"></i></a>
+                  </div>
+                  <div class="col s12 m6 l3">
+                    <a href="https://www.facebook.com/LangoIndigenousHiphop" target="_blank"><i style="color: #3b5998;" class="fa-brands fa-square-facebook fa-3x"></i></a>
+                  </div>
+                  <div class="col s12 m6 l3">
+                    <a href="https://youtube.com/channel/UCt5XE4LbufTp9Z9OaB1M53Q" target="_blank"><i style="color: #c4302b;" class="fa-brands fa-square-youtube fa-3x"></i></a>
+                  </div>
+                </div>
+            </div>
+            
+            <footer class="page-footer grey darken-4">
+              <div class="footer-copyright">
+                <div class="container">
+                © 2023 Lango Indigenous Hip-Hop
+                <a class="grey-text text-lighten-4 right" href="nassiff.dev">Designed by Nassif</a>
+                </div>
+              </div>
+            </footer>
+            
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="materialize/js/materialize.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script src="index.js"></script>
+    <!--Music-->
+    <script src="music/data.js"></script>
+    <script src="music/app.js"></script>
+     <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Jquery Link -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<!-- Bootstrap Link -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<!-- APlayer Jquery link -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>	
+
+	<script>
+
+
+		// NOW I CLICK album-poster TO GET CURRENT SONG ID
+		$(".album-poster").on('click', function(e){
+			var dataSwitchId = $(this).attr('data-switch');
+			//console.log(dataSwitchId);
+
+			// and now i use aplayer switch function see
+			ap.list.switch(dataSwitchId); //this is static id but i use dynamic 
+
+			// aplayer play function
+			// when i click any song to play
+			ap.play();
+
+			// click to slideUp player see
+			$("#aplayer").addClass('showPlayer');
+		});
+
+		const ap = new APlayer({
+		    container: document.getElementById('aplayer'),
+		    listFolded: true,
+		    audio: [
+        {
+		        name: 'My AVRs',
+		        artist: 'Dealrafael Jsp-E , Dandilo & Victoria',
+		        url: '/music/songs/My ARVs-Dealrafael Jsp-E , Dandilo & Victoria.mp3',
+		        cover: 'music/img/My_ARV_Song.jpg'
+		    },
+        {
+		        name: 'Pe Itong Yen',
+		        artist: 'Dealrafael Jsp-E ft Dandilo',
+		        url: '/music/songs/Pe Itong Yen - Dealrafael Jsp-E ft Dandilo.mp3',
+		        cover: 'music/img/Climate_Song.jpg'
+		    },
+		    {
+		        name: 'Luga flow(Lango flow)',
+		        artist: 'Dealrafael Jsp-E',
+		        url: 'music/songs/Luga flow(Lango flow) - Dealrafael Jsp-Emp3.mp3',
+		        cover: 'music/img/LANGO FLOW.jpg'
+		    },
+        {
+              name: 'Atungulu',  // SONG NAME
+              artist: 'Ory Jeino Ft Dealrafael Jsp-E', //ARTIST NAME
+              url: 'music/songs/Atungulu - Ory Jeino ft Dealrafael Jsp-E.mp3', // PATH NAME AND SONG URL
+              cover: 'music/img/ATUNGULU.png' // COVER IMAGE
+          },
+        {
+          name: 'Soy beans',
+              artist: 'Dealrafael Jsp-E',
+              url: 'music/songs/Soy beans - Dealrafael Jsp-E.mp3',
+              cover: 'music/img/SOY BEANS.png'
+        },
+        {
+          name: 'Mak Tic Wek Ra',
+              artist: 'Dealrafael Jsp-E',
+              url: 'music/songs/Mak Tic Wek Ra - Dealrafael Jsp-E.mp3',
+              cover: 'music/img/Mak Tic Wek  Ra.png'
+        },
+        {
+          name: 'Uganda Mewa',
+              artist: 'Dealrafael Jsp-E',
+              url: 'music/songs/Uganda Mewa - Dealrafael Jsp-E.mp3',
+              cover: 'music/img/Uganda Mewa.png'
+        },
+        {
+          name: 'Rwot mi Gum 2017',
+              artist: 'Dealrafael Jsp-E',
+              url: 'music/songs/Rwot mi Gum 2017 - Dealrafael Jsp-E.mp3',
+              cover: 'music/img/RWOT MII WUU GUM.png'
+        },
+        {
+          name: 'Lego Pi Uganda',
+              artist: 'Dealrafael Jsp-E',
+              url: 'music/songs/Lego Pi Uganda By Dealrafael Jsp-E.mp3',
+              cover: 'music/img/LEGO PII UGANDA.png'
+        },
+        {
+          name: 'Winya I Radio',
+              artist: 'Dealrafael Jsp-E',
+              url: 'music/songs/Winya i Radio - Dealrafael Jsp-E .mp3',
+              cover: 'music/img/WINYA I RADIO.png'
+        },
+        {
+          name: 'Pingo pe imito weko jayi',
+              artist: 'Dealrafael Jsp-E ft Musiime Da_profesa',
+              url: 'music/songs/Pingo Pe Imito Weko Jai Musiime Da profesa Ft Dealrafael Jsp-E.mp3',
+              cover: 'music/img/PINGO PE IMITO WEKO JAI.png'
+        },
+        {
+          name: 'KOP OKANE',
+              artist: 'Dealrafael Jsp-E',
+              url: 'music/songs/KOP OKANE - Dealrafael Jsp-E.mp3',
+              cover: 'music/img/KOP OKANE.png'
+        },
+        {
+          name: 'AlokaLoka',
+              artist: 'Dealrafael Jsp-E',
+              url: 'music/songs/AlokaLoka - Dealrafael Jsp-E.mp3',
+              cover: 'music/img/ALOKALOKA.png'
+        },
+        {
+          name: 'My ARVs (Instrumentals with hooks)',
+              artist: 'Dealrafael Jsp-E',
+              url: 'music/songs/My ARVs (Instrumentals with hooks).mp3',
+              cover: 'img/logo.png'
+        },
+        {
+          name: 'Pe Itong Yen (Instrumentals with Hook)',
+              artist: 'Dealrafael Jsp-E',
+              url: 'music/songs/Pe Itong Yen (Instrumentals with Hook).mp3',
+              cover: 'img/logo.png'
+        },
+
+		    ]
+		});
+	</script>
+  </body>
+</html>
