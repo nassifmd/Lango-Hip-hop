@@ -1,0 +1,82 @@
+.bold_txt {
+    font-family: 'Rubik Distressed', cursive;
+    font-size: 100px;
+    text-align: center;
+}
+
+.p-t-10px {
+    padding-top: 10px;
+}
+
+.p-b-10px {
+    padding-bottom: 10px;
+}
+
+.audio-controls-box {
+    padding: 10px;
+    position: relative;
+}
+
+.audio-timeline-range {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+}
+
+.d-flex {
+    display: flex;
+} 
+
+.align-item-center {
+    align-items: center;
+}
+
+.flex-grow-1 {
+    flex-grow: 1;
+}
+
+.audio-timeline-range input [type="range"]{
+    margin: 0px;
+}
+
+.halfbold_txt {
+    font-size: 20px;
+    text-align: center;
+}
+
+.incresize {
+    padding-bottom: 50px;
+}
+
+.centtxt {
+    text-align: center;
+}
+
+.news {
+    text-align: center;
+    font-size: 50px;
+}
+
+.disc-icon {
+    width: 100%;
+}
+
+.audio-controls .btn-controls {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%  ;
+}
+
+.audio-controls .btn-controls .play-pause-btn {    
+    height: 60px;
+    width: 10px;
+    border-radius: 50%;
+}
+
+.music-titlez {
+    font-size: 14px;
+    text-align: center;
+}
+

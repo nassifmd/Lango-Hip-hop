@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/music.css">
+    <!--Awesome font-->
+    <link href="fontawesome/css/all.css" rel="stylesheet">
+    <link href="fontawesome/css/brands.css" rel="stylesheet">
+    <link href="fontawesome/css/solid.css" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+
+    <!-- facebook link -->
+<meta property="og:url"           content="https://www.langoindigenoushiphop.org/Mak%20Tic%20Wek%20Ra.html" />
+<meta property="og:type"          content="Music" />
+<meta property="og:title"         content="MAK TIC WEK RA" />
+<meta property="og:description"   content="Dealrafael Jsp-E" />
+<meta property="og:image"         content="music/img/Mak Tic Wek Ra.png" />
+  </head>
+
+  <body>
+    <style>
+      .brand-logo {
+          width: 100px;
+          height: 80px;
+          position: absolute;
+          top: 0px;
+          left: 12px;
+      }
+    </style>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v16.0" nonce="O5Ymp1Fe"></script>
+           <nav>
+            <div class="nav-wrapper grey lighten-5">
+              <a href="/index.html" class="brand-logo grey-text text-darken-4">
+                <img class="brand-logo" src="/img/logo.png" alt="">
+              </a>
+              <a href="#" class="sidenav-trigger blue-text text-darken-2 right" data-target="mobile-links">
+                <i class="material-icons">menu</i>
+              </a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="grey-text text-darken-4" href="index.html">Home</a></li>
+                <li><a class="grey-text text-darken-4" href="about.html">About</a></li>
+                <li><a class="grey-text text-darken-4" href="projects.html">Hip-hop Projects</a></li>
+                <li><a class="grey-text text-darken-4" href="music.html">Music</a></li>
+                <li><a class="grey-text text-darken-4" href="opportunities.html">Opportunities</a></li>
+                <li><a class="grey-text text-darken-4" href="news.html">News</a></li>
+                <li><a class="grey-text text-darken-4" href="gallery.html">Gallery</a></li>
+                <li><a class="waves-effect  grey darken-1 waves-light btn">Contact <i class="material-icons right">contact_mail</i></a></li>
+              </ul>
+            </div>
+          </nav> 
+
+      <!-- Sidenav -->
+      <ul class="sidenav" id="mobile-links">
+        <ul><li><a href="index.html"><img class="responsive-img size" src="./img/logo.png"></a></li></ul>
+          <li><a class="navtxt" href="index.html">Home</a></li>
+          <li><a class="navtxt" href="about.html">About</a></li>
+          <li><a class="navtxt" href="projects.html">Hip-hop Projects</a></li>
+          <li><a class="navtxt" href="music.html">Music</a></li>
+          <li><a class="navtxt" href="opportunities.html">Opportunities</a></li>
+          <li><a class="navtxt" href="news.html">News</a></li>
+          <li><a class="navtxt" href="gallery.html">Gallery</a></li>
+          <li><a class="navtxt" href="contact.html">Contact</a></li>
+      </ul>
+
+        <div class="player">
+          <div class="wrapper">
+              <div class="details">
+                  <div class="now-playing">PLAYING x OF y</div>
+                  <div class="track-art"></div>
+                  <div class="track-name">Track Name</div>
+                  <div class="track-artist">Track Artist</div>
+              </div>
+   
+              <div class="slider_container">
+                  <div class="current-time">00:00</div>
+                   <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+                   <div class="total-duration">00:00</div>
+              </div>
+   
+              <div class="slider_container">
+                  <i class="fa fa-volume-down"></i>
+                   <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
+                   <i class="fa fa-volume-up"></i>
+              </div>
+   
+              <div class="buttons">
+                  <div class="random-track" onclick="randomTrack()">
+                      <i class="fas fa-random fa-2x" title="random"></i>
+                  </div>
+                  <div class="prev-track" onclick="prevTrack()">
+                       <i class="fa fa-step-backward fa-2x"></i>
+                   </div>
+                   <div class="playpause-track" onclick="playpauseTrack()">
+                       <i class="fa fa-play-circle fa-5x"></i>
+                   </div>
+                   <div class="next-track" onclick="nextTrack()">
+                       <i class="fa fa-step-forward fa-2x"></i>
+                   </div>
+                   <div class="repeat-track" onclick="repeatTrack()">
+                       <i class="fa fa-repeat fa-2x" title="repeat"></i>
+                   </div>
+              </div>
+              <a style="padding: 15px; background-color: black; color: #fff; border-radius: 30px; margin-left: 150px; margin-right: 150px;" href="music/songs/Mak Tic Wek Ra - Dealrafael Jsp-E.mp3" download='Luk iloka - Dealrafael Jsp-E Ft Paskweli & Emma Timo' class="download-btn">Download
+                <i class="fa fa-download"></i>
+             </a>
+              <div class="fb-share-button" data-href="https://www.langoindigenoushiphop.org/music/img/Mak%20Tic%20Wek%20%20Ra.png" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.langoindigenoushiphop.org%2Fmusic%2Fimg%2FMak%2520Tic%2520Wek%2520%2520Ra.png&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+               <div id="wave">
+                   <span class="stroke"></span>
+                   <span class="stroke"></span>
+                   <span class="stroke"></span>
+                   <span class="stroke"></span>
+                   <span class="stroke"></span>
+                   <span class="stroke"></span>
+                   <span class="stroke"></span>
+               </div>  
+          </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col s2 m2">
+            <a href="https://www.linkedin.com/company/lango-indigenous-hip-hop" target="_blank"><i style="color: #0072b1;" class="fa-brands fa-linkedin fa-3x"></i></a>
+          </div>
+          <div class="col s2 m2">
+            <a href="" target="_blank"><i style="color: rgb(228, 64, 95)" class="fa-brands fa-square-instagram fa-3x"></i></a>
+          </div>
+          <div class="col s2 m2">
+            <a href="https://www.facebook.com/LangoIndigenousHiphop" target="_blank"><i style="color: #3b5998;" class="fa-brands fa-square-facebook fa-3x"></i></a>
+          </div>
+          <div class="col s2 m2">
+            <a href="https://youtube.com/channel/UCt5XE4LbufTp9Z9OaB1M53Q" target="_blank"><i style="color: #c4302b;" class="fa-brands fa-square-youtube fa-3x"></i></a>
+          </div>
+        </div>
+      </div>
+            
+            <footer class="page-footer grey darken-4">
+              <div class="footer-copyright">
+                <div class="container">
+                © 2023 Lango Indigenous Hip-Hop
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                </div>
+              </div>
+            </footer>
+            
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="materialize/js/materialize.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script src="/jsmusic/music4.js"></script>
+     <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
